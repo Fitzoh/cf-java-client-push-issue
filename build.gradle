@@ -1,0 +1,36 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+
+    compile 'org.cloudfoundry:cloudfoundry-client-reactor:2.25.0.RELEASE'
+    compile 'org.cloudfoundry:cloudfoundry-operations:2.25.0.RELEASE'
+    compile 'io.projectreactor:reactor-core:3.0.7.RELEASE'
+    compile 'io.projectreactor.ipc:reactor-netty:0.6.6.RELEASE'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
